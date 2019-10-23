@@ -16,7 +16,7 @@ Expects a list of three elements - throw 1, throw 2 and total.\n"""
         time.sleep(1)
         pauses = pauses + 1
     time.sleep(1)
-    print("Die 1 is. . . .", mylist[0])
+    print("\nDie 1 is. . . .", mylist[0])
     time.sleep(2)
     print("Die 2 is. . . .", mylist[1])
     time.sleep(2)
