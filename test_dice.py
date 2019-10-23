@@ -10,6 +10,7 @@ from is_win import is_win
 playmode = 0
 point = 0
 mylist = [0, 0, 0]
+bad_throw = 0
 
 mylist = throw_dice(6)
 point = mylist[2]
