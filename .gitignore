@@ -1,6 +1,4 @@
-__pycache__/display_dice.cpython-37.pyc
-__pycache__/is_win.cpython-37.pyc
-__pycache__/*.cpython-37.pyc
+*.pyc
 
 # Copied from GitHub Python .gitignore (https://github.com/github/gitignore/blob/master/Python.gitignore)
 
