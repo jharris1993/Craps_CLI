@@ -49,6 +49,7 @@ while continue_playing == 1:
         playmode = play_flag[1]
         if winflag > 0:  #  Player won at something
             print("\nExcellent!  These must be lucky dice, so let's keep playing!\n")
+            playmode = 0  #  Reset playmode to restart from the beginning
             continue
         else:  #  winflag must be 0 because < 0 triggers a different go-flag
             print("\nAll Right!  Now let's roll to make your point - Good Luck!\n")
