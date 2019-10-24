@@ -9,7 +9,7 @@ from is_win import is_win
 from display_results import display_results
 from keep_playing import keep_playing
 
-texas_flag = 0  #  Rules to use: 0 = Vegas, 1 = Texas
+texas_flag = 1  #  Rules to use: 0 = Vegas, 1 = Texas
 playmode = 0  #  Start game on come-out roll
 point = 0
 mylist = [0, 0, 0]
