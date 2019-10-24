@@ -28,7 +28,7 @@
 #       1 = "Roll for point" (Vegas rules)
 #       2 = "Roll for point" (Texas rules)
 #  #2:  List (dice) returned from "throw_dice"
-#  #3:  Point to make, (only if play mode != 0 - defaults to 0)
+#  #3:  point_to_make, (only if play mode != 0 - defaults to 0)
 #       If play mode != 0 and point to make = 0, throws exception (test)
 #
 #  Returns:
@@ -39,6 +39,8 @@
 #            If rolling for point, you didn't make your point yet.
 #        1 = Win (Vegas and Texas)  i.e. You made your point.
 #        2 = (Texas rules only) You rolled doubles to make your point.
+#  #2  The point to make if plamode = 0
+#      The existing point to make if playmode > 0
 #
 #  Dependencies:  None.
 #
@@ -47,11 +49,12 @@ def is_win(play_mode=0, dice=[0, 0, 0], point=0):  #  "point" only used if play 
         if the player has won, (and if so, how), lost, or continues rolling.\n"""
     if play_mode == 0:  # come-out roll
         if dice[2] == 7 or dice[2] == 11:  #  winning "naturals"
-            return 1
+            return (1, point)
         elif dice[2] == 12 or dice[2] == 3 or dice[2] == 2:  #  non-winning "naturals"
-            return -1
+            return (-1, point)
         else:
-            return 0
+            point = dice[2]  #  set point to the total of the two dice
+            return (0, point)
     else:
         pass
 #
@@ -60,16 +63,16 @@ def is_win(play_mode=0, dice=[0, 0, 0], point=0):  #  "point" only used if play 
 #  Has the player rolled a loosing roll while rolling for point?
 #
     if dice[2] == 7:  #  Automatic loose while rolling for point
-        return -1
+        return (-1, point)
     elif dice[2] == 2 and play_mode == 2:  #  Snake-Eyes, (2) in Texas rules, (2) looses
-        return -1
+        return (-1, point)
     else:
         pass  # exit "if" block
 #
 #  dice roll must either win or not equal the desired point.
 #
     if dice[2] != point:  # hasn't won or lost yet, keep playing
-        return 0
+        return (0, point)
 
 #
 #  At this point, (bad pun!) the player's point must have been made
@@ -78,5 +81,5 @@ def is_win(play_mode=0, dice=[0, 0, 0], point=0):  #  "point" only used if play 
 #
     if play_mode == 2:  #  Are we playing Texas rules?
         if dice[0] == dice[1]:  # doubles thrown in Texas rules
-            return 2
-    return 1
+            return (2, point)
+    return (1, point)

@@ -16,21 +16,25 @@
 #    Library "random"  (Random number generation to generate the probibility of cracked dice)
 #    Library "datetime"  (Used to generate a (somewhat) random seed for the random number generator)
 
-def display_results(winflag, point, bad_throw_enable=0):
+def display_results(playmode, winflag, point, bad_throw_enable=0):
     """This function takes the result of is_win, and based on that result displays the appriopriate
     win, loose, doubles, or keep playing message\n"""
     import random
     import datetime
-    myseed = int(datetime.datetime.timestamp(datetime.datetime.now())*1000000)
-    random.seed(myseed)
+    import sys
 
     cracked_dice = 0  #  Variable for random functon to determine if "cracked dice" were thrown
+#
+#  seed random number generator
+#
+    myseed = int(datetime.datetime.timestamp(datetime.datetime.now())*1000000)
+    random.seed(myseed)
 #
 #  Optional "Cracked Dice" test if the flag to enable "bad throws" is enabled
 #
     if bad_throw_enable == 1:  #  "Cracked-Dice" outcomes are allowed
         cracked_dice = random.randint(1, 10)  # Appx 1 in 10 throws will be cracked
-        if crackec_dice == 10:
+        if cracked_dice == 10:
             print("Cracked Dice! Throw again. . . .")
             return 2
     else:
@@ -41,8 +45,10 @@ def display_results(winflag, point, bad_throw_enable=0):
     if winflag == -1:
         print("Sorry, you loose. . . .")
         return 0
+    elif winflag == 0 and playmode == 0:
+        print("Your come-out roll is", point, " This is the number you need to win")
     elif winflag == 0:
-        print("Your point is", point)
+        print("Your point is", point, "  Roll again. . .")
         return 0
     elif winflag == 1:
         print("You Win!!")
@@ -51,8 +57,12 @@ def display_results(winflag, point, bad_throw_enable=0):
         print("Woo Hoo!  You win twice the amount!!")
         return 0
     else:  #  Invalid winflag - this should never happen (yea. . . right!)
-        traceback.print_exc(file=sys.stdout)
-        sys.exit(0)
+        try:
+            if winflag < 0 or winflag > 2:
+                raise Exception('winflag should not be < -1 or > 2. The value of winflag was: {}'.format(winflag))
+        except ValueError:
+            print("Invalid value for winflag."),
+#            prompt = "This should never happen - please report a bug."
 #
 #  end of function
 #
