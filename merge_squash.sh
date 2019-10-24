@@ -28,7 +28,7 @@ git merge CLI_Dev
 echo -e "\ngit push origin master"
 git push origin master
 
-# forces active repository back to CLI_Dev.
+# force checkouot of CLI_Dev to restore focus to Dev branch
 # Absent this, I end up in "master"
 # which causes no end of trouble the next time
 # I try a commit - it pushes to master and not dev!
