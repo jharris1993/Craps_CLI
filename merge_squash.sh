@@ -31,7 +31,7 @@ git push origin master
 # force checkouot of CLI_Dev to restore focus to Dev branch
 # Absent this, I end up in "master"
 # which causes no end of trouble the next time
-# I try a commit - it pushes to master and not dev!
+# I try a commit, it pushes to master and not dev!
 
 echo -e "\ngit checkout CLI_Dev"
 git checkout CLI_Dev
