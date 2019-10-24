@@ -29,14 +29,14 @@ while continue_playing == 1:
     elif playmode == 2:
         print("\nRolling for your point using Texas Rules. . . .")
     else:
-        print("playmode =", playmode, "Oh Snap!  That's an invalid playmode!")
+        print("playmode = ", playmode, "Oh Snap!  That's an invalid playmode!")
         sys.exit(1)
 
     display_dice(mylist)  #  Display details of dice roll, always returns 0
     win_result = (is_win(playmode, mylist, point_to_make))  #  Determine win/loose - list(winflag, point to make)
     winflag = win_result[0]
     point_to_make = win_result[1]
-    display_results(playmode, winflag, point_to_make, bad_throw_enable=0)  #  Display results of the throw
+    display_results(playmode, winflag, point_to_make, bad_throw_enable = 0)  #  Display results of the throw
     time.sleep(2)
 
 #    print("\nwinflag =", winflag, " playmode =", playmode, " point =", point, " point_to_make =", point_to_make, " mylist =", mylist, "\n")
