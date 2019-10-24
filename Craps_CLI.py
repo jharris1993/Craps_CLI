@@ -57,16 +57,24 @@ while continue_playing == 1:
 #
 #  Keep Playing?
 #
-    play_flag = keep_playing(winflag, playmode, texas_flag)  #  Returns list[go_flag, playmode]
+    old_playmode = playmode  #  preserve old playmode just in case we need it
 
+    play_flag = keep_playing(winflag, playmode, texas_flag)  #  Returns list[go_flag, playmode]
     if play_flag[0] == 1:  #  play_flag[0] = the go flag. play_flag[1] = desired playmode
         playmode = play_flag[1]
         if winflag > 0:  #  Player won at something
-            print("\nExcellent!  These must be lucky dice, so let's keep playing!\n")
-            playmode = 0  #  Reset playmode to restart from the beginning
+            print("Excellent!  These must be lucky dice, so let's keep playing!\n")
+            if texas_flag == 1:  #  What rule-set are we playing under?
+                print("Playinig using 'Texas' rules.\n")  #  Playinig using "texas" rules
+            else:
+                print("Playing using 'Vegas' rules.\n")  #  If not texas, must be "vegas" rules
+                playmode = 0  #  Reset playmode to restart from the beginning
+                continue
+        elif old_playmode == 0:  #  winflag must be 0 because < 0 triggers a different go-flag
+        #  If winflag = o and the old playmode is also = 0, then we're rolling for point after come-out
+            print("Now let's roll to make your point - Good Luck!\n")
             continue
-        else:  #  winflag must be 0 because < 0 triggers a different go-flag
-            print("\nAll Right!  Now let's roll to make your point - Good Luck!\n")
+        else:
             continue
     else:  #  Go flag must be 0 so we ask to continue or not
         keep_going = input("Would you like to play again? [Y] n\n")
