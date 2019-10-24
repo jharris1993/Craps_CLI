@@ -10,14 +10,23 @@ from display_results import display_results
 from keep_playing import keep_playing
 from show_doc import show_doc
 
-texas_flag = 1  #  Rules to use: 0 = Vegas, 1 = Texas
+texas_flag = 0  #  Rules to use: 0 = Vegas, 1 = Texas
 playmode = 0  #  Start game on come-out roll
 point = 0
 mylist = [0, 0, 0]
-
-
 continue_playing = 1  #  necessary to start the game
 
+#
+#  Offer to show game documentation
+#
+keep_going = input("Would you like to see the game's documentation? [Y] n\n")
+if keep_going == "Y" or keep_going == "y" or keep_going == "":
+    keep_going = show_doc  #  keep_going is used as a dummy variable here
+else:
+    pass
+#
+#  Begin game play
+#
 while True:
     keep_going = input("\nWould you like to play using Vegas or Texas rules? ['V'] or 'T'\n")
     if keep_going == "V" or keep_going == "v" or keep_going == "":
