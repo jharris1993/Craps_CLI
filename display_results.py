@@ -43,7 +43,7 @@ def display_results(playmode, winflag, point, bad_throw_enable=0):
 #  Normal game progression begins here
 #
     if winflag == -1:
-        print("Sorry, you loose. . . .")
+        print("Sorry, you loose. . . .\n")
         return 0
     elif winflag == 0 and playmode == 0:
         print("Your come-out roll is", point, " This is the number you need to win")
