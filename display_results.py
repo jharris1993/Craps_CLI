@@ -42,7 +42,7 @@ def display_results(playmode, winflag, point, bad_throw_enable=0):
 #
 #  Normal game progression begins here
 #
-    if winflag == -1 and playmode == 2:
+    if winflag == -1 and point == 2 and playmode == 2:
         print("Snake-Eyes!  You crapped out!!n")
         return 0
     if winflag == -1:

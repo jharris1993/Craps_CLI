@@ -66,6 +66,7 @@ while continue_playing == 1:
             print("Excellent!  These must be lucky dice, so let's keep playing!\n")
             if texas_flag == 1:  #  What rule-set are we playing under?
                 print("Playinig using 'Texas' rules.\n")  #  Playinig using "texas" rules
+                playmode = 0  #  Reset playmode to restart from the beginning
             else:
                 print("Playing using 'Vegas' rules.\n")  #  If not texas, must be "vegas" rules
                 playmode = 0  #  Reset playmode to restart from the beginning
