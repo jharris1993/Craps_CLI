@@ -13,9 +13,23 @@ texas_flag = 1  #  Rules to use: 0 = Vegas, 1 = Texas
 playmode = 0  #  Start game on come-out roll
 point = 0
 mylist = [0, 0, 0]
-# point_to_make = 10
+
 
 continue_playing = 1  #  necessary to start the game
+
+while True:
+    keep_going = input("\nWould you like to play using Vegas or Texas rules? ['V'] or 'T'\n")
+    if keep_going == "V" or keep_going == "v" or keep_going == "":
+        print("Playing using 'Vegas' rules\n")
+        texas_flag = 0
+        break
+    elif keep_going == "T" or keep_going == "t":
+        print("Playing using 'Texas' rules\n")
+        texas_flag = 1
+        break
+    else:
+        print("Please select either a 'V' or a 'T'")
+        continue
 
 while continue_playing == 1:
     mylist = throw_dice(6)  #  returns list of 3 numbers: die1, die2, total
