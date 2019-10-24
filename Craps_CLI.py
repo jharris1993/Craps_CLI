@@ -8,6 +8,7 @@ from display_dice import display_dice
 from is_win import is_win
 from display_results import display_results
 from keep_playing import keep_playing
+from show_doc import show_doc
 
 texas_flag = 1  #  Rules to use: 0 = Vegas, 1 = Texas
 playmode = 0  #  Start game on come-out roll
