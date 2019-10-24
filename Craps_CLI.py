@@ -13,9 +13,11 @@ texas_flag = 0  #  Rules to use: 0 = Vegas, 1 = Texas
 playmode = 0  #  Start game on come-out roll
 point = 0
 mylist = [0, 0, 0]
-point_to_make = 10
+# point_to_make = 10
 
-while keep_playing == 1:
+continue_playing = 1  #  necessary to start the game
+
+while continue_playing == 1:
     mylist = throw_dice(6)  #  returns list of 3 numbers: die1, die2, total
     point = mylist[2]
     # mylist = [5, 5, 10]
@@ -35,7 +37,9 @@ while keep_playing == 1:
     winflag = win_result[0]
     point_to_make = win_result[1]
     display_results(playmode, winflag, point_to_make, bad_throw_enable=0)  #  Display results of the throw
-    print("\nwinflag =", winflag, " playmode =", playmode, " point =", point, " point_to_make =", point_to_make, " mylist =", mylist, "\n")
+    time.sleep(2)
+
+#    print("\nwinflag =", winflag, " playmode =", playmode, " point =", point, " point_to_make =", point_to_make, " mylist =", mylist, "\n")
 #
 #  Keep Playing?
 #
