@@ -21,5 +21,6 @@ Expects a list of three elements - throw 1, throw 2 and total.\n"""
     print("Die 2 is. . . .", mylist[1])
     time.sleep(2)
     print("And the total of both dice is:", mylist[2], "\n")
+    time.sleep(3)
 
     return 0
