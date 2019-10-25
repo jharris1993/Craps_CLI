@@ -28,40 +28,20 @@ to understand and play.
 
 This game has two variants:  "Vegas" and "Texas" craps, with the "Texas"
 variant being my own invention to make the game more interesting.
-    """)
-
-    input("Press 'enter' to continue\n")
-    system('cls')
-
-    print("""
-            This game's variation of the Vegas rules.
-
-Normally real Vegas rules are considerably more complicated and can
-include exotic bets, various "house rules" and table limits on the minimum
-bet you can place at any one table or on any particular type of bet.
-
-This game simplifies these rules by:
-
-1.  Not implementing exotic bets - like betting on a particular roll of the
-    dice. Actually, this game does not implement ANY kind of betting yet.
-    (However, what you do on the table next to the computer is your own
-    business. . . .)
-
-2.  In real craps the player can decide to "yield" the dice after a round
-    has finished.  This game assumes that the player wants to continue play
-    until he looses and automatically continues.
-    """)
-
-    input("Press 'enter' to continue\n")
-    system('cls')
-
-    print("""
 
                         How to play Craps
 
-A round of craps starts when a player is offered the dice by "the stickman"
-who is responsible for keeping track of the dice.  If the player accepts
-the dice, he starts with what is known as the "come-out" roll.
+A round of craps starts when a player is offered the dice by "the stickman",
+a casino employee who is responsible for keeping track of the dice.
+If the player accepts the dice, he starts with what is known as the
+"come-out" roll.
+    """)
+
+    input("Press 'enter' to continue\n")
+    system('cls')
+
+
+    print("""
 
                         The Come-Out Roll:
 
@@ -98,6 +78,29 @@ If the player rolls a "7", he looses.
 
 If the player rolls any other number, he keeps the dice and continues to roll
 until he either "makes his point" or rolls a 7.
+    """)
+
+    input("Press 'enter' to continue\n")
+    system('cls')
+
+    print("""
+
+            This game's variation of the Vegas rules.
+
+Normally real Vegas rules are considerably more complicated and can
+include exotic bets, various "house rules" and table limits on the minimum
+bet you can place at any one table or on any particular type of bet.
+
+This game simplifies these rules by:
+
+1.  Not implementing exotic bets - like betting on a particular roll of the
+    dice. Actually, this game does not implement ANY kind of betting yet.
+    (However, what you do on the table next to the computer is your own
+    business. . . .)
+
+2.  In real craps the player can decide to "yield" the dice after a round
+    has finished.  This game assumes that the player wants to continue play
+    until he looses and automatically continues.
     """)
 
     input("Press 'enter' to continue\n")
