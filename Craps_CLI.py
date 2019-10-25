@@ -31,7 +31,7 @@ else:
 #  Offer to show game documentation
 #
 print(" ")
-keep_going = input("Would you like to see the game's documentation? [Y] n\n")
+keep_going = input("Would you like to know how to play the game? [Y] n\n")
 print(keep_going)
 if keep_going == "Y" or keep_going == "y" or keep_going == "":
     show_doc()  #  keep_going is used as a dummy variable here
