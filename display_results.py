@@ -23,27 +23,11 @@ def display_results(playmode, winflag, point, bad_throw_enable=0):
     import datetime
     import sys
 
-    cracked_dice = 0  #  Variable for random functon to determine if "cracked dice" were thrown
-#
-#  seed random number generator
-#
-    myseed = int(datetime.datetime.timestamp(datetime.datetime.now())*1000000)
-    random.seed(myseed)
-#
-#  Optional "Cracked Dice" test if the flag to enable "bad throws" is enabled
-#
-    if bad_throw_enable == 1:  #  "Cracked-Dice" outcomes are allowed
-        cracked_dice = random.randint(1, 10)  # Appx 1 in 10 throws will be cracked
-        if cracked_dice == 10:
-            print("Cracked Dice! Throw again. . . .\n")
-            return 2
-    else:
-        pass  #  "'formally' close the 'if' statement.  Maybe not necessary, but. . ."
 #
 #  Normal game progression begins here
 #
-    if winflag == -1 and point == 2 and playmode == 2:
-        print("Snake-Eyes!  You crapped out!!n")
+    if winflag == -2:
+        print("Snake-Eyes!  You crapped out!!\n")
         return 0
     if winflag == -1:
         print("Sorry, you loose. . . .\n")
@@ -52,7 +36,7 @@ def display_results(playmode, winflag, point, bad_throw_enable=0):
         print("Your come-out roll is", point)
         print("This is the number, (your 'point'), that you need to win\n")
     elif winflag == 0:
-        print("Your point is", point, "  Roll again. . .")
+        print("Your point is", point, "  Roll again. . .\n")
         return 0
     elif winflag == 1 and playmode == 0:
         print("You rolled either a '7' or '11' on your come-out roll")
