@@ -1,0 +1,1 @@
+pyinstaller --clean -F -i Dice.ico .\Craps_CLI.py
