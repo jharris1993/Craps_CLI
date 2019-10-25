@@ -15,13 +15,17 @@ playmode = 0  #  Start game on come-out roll
 point = 0
 mylist = [0, 0, 0]
 continue_playing = 1  #  necessary to start the game
+keep_going = "n"  #  Don't show rules unless requested
 
 #
 #  Offer to show game documentation
 #
+print(" ")
 keep_going = input("Would you like to see the game's documentation? [Y] n\n")
+print(keep_going)
+# time.sleep(100)
 if keep_going == "Y" or keep_going == "y" or keep_going == "":
-    keep_going = show_doc  #  keep_going is used as a dummy variable here
+    show_doc()  #  keep_going is used as a dummy variable here
 else:
     pass
 #
@@ -46,21 +50,21 @@ while continue_playing == 1:
     point = mylist[2]
     # mylist = [5, 5, 10]
     if playmode == 0:
-        print("\nCome-out roll. . .")
+        print("Come-out roll. . . .\n")
         point_to_make = point  #  Assign point if come-out roll, should exist otherwise
     elif playmode == 1:
-        print("\nRolling for your point using Vegas Rules. . . .")
+        print("Rolling for your point using Vegas Rules. . . .\n")
     elif playmode == 2:
-        print("\nRolling for your point using Texas Rules. . . .")
+        print("Rolling for your point using Texas Rules. . . .\n")
     else:
         print("playmode = ", playmode, "Oh Snap!  That's an invalid playmode!")
         sys.exit(1)
 
     display_dice(mylist)  #  Display details of dice roll, always returns 0
-    win_result = (is_win(playmode, mylist, point_to_make))  #  Determine win/loose - list(winflag, point to make)
+    win_result = is_win(playmode, mylist, point_to_make)  #  Determine win/loose - list(winflag, point to make)
     winflag = win_result[0]
     point_to_make = win_result[1]
-    display_results(playmode, winflag, point_to_make, bad_throw_enable = 0)  #  Display results of the throw
+    display_results(playmode, winflag, point_to_make)  #  Display results of the throw
     time.sleep(2)
 
 #    print("\nwinflag =", winflag, " playmode =", playmode, " point =", point, " point_to_make =", point_to_make, " mylist =", mylist, "\n")
@@ -91,9 +95,10 @@ while continue_playing == 1:
         keep_going = input("Would you like to play again? [Y] n\n")
         if keep_going == "Y" or keep_going == "y" or keep_going == "":
             playmode = 0
+            print(" ")
             continue
         else:
-            print("Thanks for playing!  I hope you come back soon!")
+            print("\nThanks for playing!  I hope you come back soon!\n")
             break
 #
 #  end of program
