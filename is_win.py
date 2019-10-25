@@ -33,7 +33,8 @@
 #
 #  Returns:
 #  #1:  "Win Flag"
-#       -1 = Loose (Vegas:  Roll = 7 - Texas: Roll = 7 or 2)
+#       -1 = Loose (Roll = 7)
+#       -2 = Snake-Eyes (Texas Rules: Roll = 2)
 #        0 = Neither win nor loose. (default)
 #            If come-out roll, total = point to make.
 #            If rolling for point, you didn't make your point yet.
@@ -64,8 +65,8 @@ def is_win(play_mode=0, dice=[0, 0, 0], point=0):  #  "point" only used if play 
 #
     if dice[2] == 7:  #  Automatic loose while rolling for point
         return (-1, point)
-    elif dice[2] == 2 and play_mode == 2:  #  Snake-Eyes, (2) in Texas rules, (2) looses
-        return (-1, point)
+    elif dice[2] == 2 and play_mode == 2:  #  Snake-Eyes, (2) in Texas rules, "2" looses
+        return (-2, point)
     else:
         pass  # exit "if" block
 #
