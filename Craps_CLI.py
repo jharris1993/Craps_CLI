@@ -65,7 +65,7 @@ while continue_playing == 1:
     winflag = win_result[0]
     point_to_make = win_result[1]
     display_results(playmode, winflag, point_to_make)  #  Display results of the throw
-    time.sleep(2)
+    time.sleep(3)
 
 #    print("\nwinflag =", winflag, " playmode =", playmode, " point =", point, " point_to_make =", point_to_make, " mylist =", mylist, "\n")
 #
