@@ -9,6 +9,7 @@ from is_win import is_win
 from display_results import display_results
 from keep_playing import keep_playing
 from show_doc import show_doc
+from show_history import show_history
 
 texas_flag = 0  #  Rules to use: 0 = Vegas, 1 = Texas
 playmode = 0  #  Start game on come-out roll
@@ -16,14 +17,22 @@ point = 0
 mylist = [0, 0, 0]
 continue_playing = 1  #  necessary to start the game
 keep_going = "n"  #  Don't show rules unless requested
-
+#
+#  Offer to show game history
+#
+print("Would you like to see a brief history")
+keep_going = input("of the game of craps? [Y] n\n")
+print(keep_going)
+if keep_going == "Y" or keep_going == "y" or keep_going == "":
+    show_history()  #  keep_going is used as a dummy variable here
+else:
+    pass
 #
 #  Offer to show game documentation
 #
 print(" ")
 keep_going = input("Would you like to see the game's documentation? [Y] n\n")
 print(keep_going)
-# time.sleep(100)
 if keep_going == "Y" or keep_going == "y" or keep_going == "":
     show_doc()  #  keep_going is used as a dummy variable here
 else:
