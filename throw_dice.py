@@ -9,8 +9,8 @@ def throw_dice(num_sides=6):
 The number of sides, (defaults to 6),\n"""
     import random
     import datetime
-    myseed = int(datetime.datetime.timestamp(datetime.datetime.now())*1000000)
-    random.seed(myseed)
+#    myseed = int(datetime.datetime.timestamp(datetime.datetime.now())*1000000)
+#    random.seed(myseed)
 
     throw_1 = random.randint(1, num_sides)
     throw_2 = random.randint(1, num_sides)
