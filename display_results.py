@@ -19,6 +19,7 @@
 def display_results(playmode, winflag, point, bad_throw_enable=0):
     """This function takes the result of is_win, and based on that result displays the appriopriate
     win, loose, doubles, or keep playing message\n"""
+
     import random
     import datetime
     import sys
