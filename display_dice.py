@@ -6,6 +6,7 @@
 # Returns 0
 #
 import time  #  Needed for time.sleep
+
 def display_dice(mylist):
     """This function implements a craps-style dice-roll display.\n
 Expects a list of three elements - throw 1, throw 2 and total.\n"""
