@@ -3,16 +3,16 @@
 #
 import time
 import sys
-from throw_dice import throw_dice
-from display_dice import display_dice
-from is_win import is_win
+import throw_dice
+import display_dice
+import is_win
 
 playmode = 0
 point = 0
 mylist = [0, 0, 0]
 bad_throw = 0
 
-mylist = throw_dice(6)
+mylist = throw_dice.throw_dice(6)
 point = mylist[2]
 # mylist = [5, 5, 10]
 if playmode == 0:
@@ -23,8 +23,8 @@ else:
     print("playmode =", playmode, "Oh Snap!  That's an invalid playmode!")
     sys.exit(1)
 
-display_dice(mylist)
-winflag = (is_win(playmode, mylist, point))
+display_dice.display_dice(mylist)
+winflag = (is_win.is_win(playmode, mylist, point))
 if playmode == 0:
     if winflag == -1:
         print("Sorry, you rolled a", mylist[2], "so you loose!")
