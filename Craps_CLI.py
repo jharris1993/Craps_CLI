@@ -3,13 +3,13 @@
 #
 import time
 import sys
-from throw_dice import throw_dice
-from display_dice import display_dice
-from is_win import is_win
-from display_results import display_results
-from keep_playing import keep_playing
-from show_doc import show_doc
-from show_history import show_history
+import throw_dice
+import display_dice
+import is_win
+import display_results
+import keep_playing
+import show_doc
+import show_history
 
 texas_flag = 0  #  Rules to use: 0 = Vegas, 1 = Texas
 playmode = 0  #  Start game on come-out roll
@@ -24,7 +24,7 @@ print("Would you like to see a brief history")
 keep_going = input("of the game of craps? [Y] n\n")
 print(keep_going)
 if keep_going == "Y" or keep_going == "y" or keep_going == "":
-    show_history()  #  keep_going is used as a dummy variable here
+    show_history.show_history()  #  keep_going is used as a dummy variable here
 else:
     pass
 #
@@ -34,7 +34,7 @@ print(" ")
 keep_going = input("Would you like to know how to play the game? [Y] n\n")
 print(keep_going)
 if keep_going == "Y" or keep_going == "y" or keep_going == "":
-    show_doc()  #  keep_going is used as a dummy variable here
+    show_doc.show_doc()  #  keep_going is used as a dummy variable here
 else:
     pass
 #
@@ -55,7 +55,7 @@ while True:
         continue
 
 while continue_playing == 1:
-    mylist = throw_dice(6)  #  returns list of 3 numbers: die1, die2, total
+    mylist = throw_dice.throw_dice(6)  #  returns list of 3 numbers: die1, die2, total
     point = mylist[2]
     # mylist = [5, 5, 10]
     if playmode == 0:
@@ -69,11 +69,11 @@ while continue_playing == 1:
         print("playmode = ", playmode, "Oh Snap!  That's an invalid playmode!")
         sys.exit(1)
 
-    display_dice(mylist)  #  Display details of dice roll, always returns 0
-    win_result = is_win(playmode, mylist, point_to_make)  #  Determine win/loose - list(winflag, point to make)
+    display_dice.display_dice(mylist)  #  Display details of dice roll, always returns 0
+    win_result = is_win.is_win(playmode, mylist, point_to_make)  #  Determine win/loose - list(winflag, point to make)
     winflag = win_result[0]
     point_to_make = win_result[1]
-    display_results(playmode, winflag, point_to_make)  #  Display results of the throw
+    display_results.display_results(playmode, winflag, point_to_make)  #  Display results of the throw
     time.sleep(3)
 
 #    print("\nwinflag =", winflag, " playmode =", playmode, " point =", point, " point_to_make =", point_to_make, " mylist =", mylist, "\n")
@@ -82,7 +82,7 @@ while continue_playing == 1:
 #
     old_playmode = playmode  #  preserve old playmode just in case we need it
 
-    play_flag = keep_playing(winflag, playmode, texas_flag)  #  Returns list[go_flag, playmode]
+    play_flag = keep_playing.keep_playing(winflag, playmode, texas_flag)  #  Returns list[go_flag, playmode]
     if play_flag[0] == 1:  #  play_flag[0] = the go flag. play_flag[1] = desired playmode
         playmode = play_flag[1]
         if winflag > 0:  #  Player won at something
